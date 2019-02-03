@@ -60,3 +60,15 @@ html {
     font-size: 2em;
     font-weight: 350;
 }
+.payment-container{
+    margin-top: 6%;
+    margin-bottom: 6%;
+    margin-left: 18%;
+    margin-right: 18%;
+}
+.small-weight{
+    font-weight: 300;
+}
+#payment-successful{
+    color: #2ECC40;
+}
