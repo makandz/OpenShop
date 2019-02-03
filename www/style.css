@@ -1,31 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
-
 /*---Media Queries --*/
-@media (max-width: 992px) {
-
-  }
-@media (max-width: 768px) {
-
-}
 @media (max-width: 576px) {
- html {
-   font-size: 1rem;
- }
+    html {
+        font-size: 1rem;
+    }
 }
 .title-text{
- font-size: 2em;
+    font-size: 2em;
 }
 .p-3:hover{
- transition-duration: 0.5s;
- background-color: rgba(0,0,0,.2);
+    transition-duration: 0.5s;
+    background-color: rgba(0,0,0,.2);
 }
 .img-fluid{
- min-width: 100px;
- min-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
 }
 .black-font{
- color: #111111;
+    color: #111111;
 }
 .add-cart-item{
- margin-left: -3%;
+    margin-left: -3%;
 }
