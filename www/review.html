@@ -1,0 +1,78 @@
+{% include "require/head.html" %}
+
+<!-- STICKY NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <h2 class="navbar-brand" href="#">InterShop</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">CART</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Payment Form -->
+<div class="container">
+    <h2 class="mini-title-text pt-5">OpenShop</h2>
+    <div class="row mt-4 bg-light pt-2">
+        <div class="col">
+            <h5 class="cart-text"><b>TOTAL<b></h5>
+        </div>
+        <div class="col"><h5 class="cart-text">$15.00</h5></div>
+    </div>
+    <form action="https://www.eecs.yorku.ca/~mbrown/EECS1012/testForm.php" method="get">
+        <h4 class="mt-3">Contact Information</h4>
+        <div class="row mt-4">
+            <div class="col">
+                <input type="email" name="email" placeholder="Email" maxlength="30" class = "form-control">
+            </div>
+        </div>
+        <h4 class="mt-4">Billing Address</h4>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 mt-4">
+                <input type="text" name="fname" placeholder="First Name" maxlength="20" class = "form-control">
+            </div>
+            <div class="col-lg-6 col-sm-12 mt-4">
+                <input type="text" name="lname" placeholder="Last Name" maxlength="20" class = "form-control">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <input type="text" name="address" placeholder="Address" maxlength="35" class = "form-control">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <input type="text" name="apartment" placeholder="Apartment, suite, etc.(optional)" maxlength="35" class = "form-control">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <input type="text" name="city" placeholder="City" maxlength="20" class = "form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm sm mt-4">
+                <input type="text" name="country" placeholder="Country" maxlength="30" class = "form-control">
+            </div>
+            <div class="col-sm sm mt-4">
+                <input type="text" name="province" placeholder="State/Province" maxlength="30" class = "form-control">
+            </div>
+            <div class="col-sm sm mt-4">
+                <input type="text" name="postal" placeholder="Zip/Postal Code" maxlength="6" class = "form-control">
+            </div>
+        </div>
+        <div class="mt-5 float-right">
+            <input type="submit" value="Add to Cart" class="btn btn-lg btn-primary">
+        </div>
+        <div class="mt-5 float-left">
+            <button class="btn btn-lg btn-link">< Return to Cart</button>
+        </div>
+    </form>
+</div>
