@@ -9,5 +9,7 @@ Main Render Page
 $loader = new Twig_Loader_Filesystem("${path}/www");
 $twig = new Twig_Environment($loader);
 
+$pass['path'] = $path;
+
 // Sets up the parsed information.
 echo $twig->render("${page}.html", $pass);
