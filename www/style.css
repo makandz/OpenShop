@@ -5,6 +5,9 @@
         font-size: 1rem;
     }
 }
+html {
+    padding-bottom: 20px;
+}
 .title-text{
     font-size: 3em;
     margin-bottom: 20px;
@@ -37,7 +40,7 @@
 #your-cart{
     color: #333333;
     font-size: 2em;
-    padding-top: 6.5%;
+    padding-top: 45px;
 }
 .cart-text{
     color: #333333;
@@ -46,4 +49,10 @@
 }
 .neg-margin{
     margin-left: -8.5%;
+}
+.truncate {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

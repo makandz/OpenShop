@@ -31,5 +31,5 @@ try {
 }
 
 $pass['cart_count'] = count($_SESSION['cart'] ?? []);
-var_dump($_SESSION['cart']);
+
 ?>
