@@ -1,0 +1,33 @@
+{% include "require/head.html" %}
+
+{% if tracking %}
+
+<h1 class="text-center mt-5">
+    {% if order.ship %}
+        Your Order has been Shipped!
+    {% else %}
+        Your Order is Processing..
+    {% endif %}
+</h1>
+<p class="text-center">Enjoy the purchase and hope to see you again soon!</p>
+
+{% else %}
+
+<!-- SHOP -->
+<div class="container">
+    <h1 class="text-center mt-5 title-text">Track an Order</h1>
+    <p class="text-center" {{ failed ? '' : 'hidden'}}><b>This order does not exist.</b></p><br/>
+    <div class="container">
+        <div class="">
+            <form action="{{path}}/tracking.php" method="get">
+                <input type="text" class="form-control" name="order" placeholder="Enter Order #" style="width: 85%; display: inline;">
+                <input type="submit" class="btn btn-primary ml-3 mb-2" value="Track Order">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+</body>
+</html>

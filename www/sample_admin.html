@@ -1,0 +1,38 @@
+{% include "require/head.html" %}
+
+<!-- SHOP -->
+<div class = "container">
+    <h1 class="text-center mt-5 title-text">Admin Panel</h1>
+    <div class="row">
+        <div class="col-3">
+            <h3>First Name</h3>
+        </div>
+        <div class="col-3">
+            <h3>Last Name</h3>
+        </div>
+        <div class="col-3">
+            <h3>Phone Number</h3>
+        </div>
+        <div class="col-3">
+            <h3>Status</h3>
+        </div>
+        {% for order in orders %}
+        <div class="col-3">
+            <p>{{ order.first }}</p>
+        </div>
+        <div class="col-3">
+            <p>{{ order.last }}</p>
+        </div>
+        <div class="col-3">
+            <p>{{ order.phone }}</p>
+        </div>
+        <div class="col-3">
+            <a href="{{path}}/sample_admin.php?ship={{order.id}}" class="btn btn-primary" {{ order.ship ? 'disabled' : ''}}>{{ order.ship ? 'Shipped' : 'Ship!'}}</a>
+        </div>
+        
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
