@@ -56,3 +56,7 @@ html {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.mini-title-text {
+    font-size: 2em;
+    font-weight: 350;
+}

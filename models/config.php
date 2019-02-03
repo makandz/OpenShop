@@ -6,7 +6,7 @@ Configuration file
 */
 
 $Config = [
-    'custom_url' => "http://localhost/OpenShop", // Custom URL
+    'url' => "http://localhost/OpenShop", // Custom URL
     'database' => [
         'name' => "data",
         'host' => "localhost",

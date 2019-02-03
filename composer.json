@@ -1,5 +1,6 @@
 {
     "require": {
-        "twig/twig": "^2.6"
+        "twig/twig": "^2.6",
+        "paypal/rest-api-sdk-php": "^1.14"
     }
 }
