@@ -3,8 +3,7 @@
 
 <!-- HEADER CONTENT -->
 <head>
-    <link href = "img/tab_logo.png" rel = "icon">
-    <title>InterShop</title>
+    <title>{{ title }}</title>
     <meta charset="utf-8">
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1">
@@ -20,3 +19,19 @@
 
 <!-- BODY TEXT -->
 <body>
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <h2 class="navbar-brand" href="#">OpenShop</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{path}}/index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{path}}/cart.php">Cart (0)</a>
+            </li>
+        </ul>
+    </div>
+</nav>

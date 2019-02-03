@@ -1,33 +1,24 @@
 {% include "require/head.html" %}
 
-<!-- STICKY NAVBAR -->
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-    <h2 class="navbar-brand" href="#">InterShop</h2>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">CART</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <!-- SHOP -->
 <div class = "container">
-    <h2 class = "text-center mt-5 title-text">InterShop Stock</h2>
-    <div class = container>
+    <h1 class="text-center mt-5 title-text">OpenShop Stock</h1>
+    <div class="container">
         <div class="row">
-            {% for i in range(0, 4) %}
-            <a href = "item.html" class = "black-font col-xl-3 col-md-6 p-3">
-                <img src = "{{path}}/www/img/interac.png" class = "img-fluid">
-                <h4>Interac</h4>
-                <h5>$15.00</h5>
+            {% for product in products %}
+            <a href="{{path}}/item.php?id={{product.id}}" class="black-font col-xl-3 col-md-6 p-3">
+                <img src="{{path}}/www/img/products/{{product.image}}" class="img-fluid product-image">
+                <h4>{{ product.name }}</h4>
+                {{ not product.quantity ? '<s>' : '' }}
+                    <h5>
+                        ${{ product.price / 100 }} 
+                        {% if product.quantity != -1 %}
+                            <span class="badge badge-primary float-right">{{product.quantity ? product.quantity : 'Out of Stock!'}}</span>
+                        {% endif %}
+                    </h5>
+                {{ not product.quantity ? '</s>' : '' }}
             </a>
+            
             {% endfor %}
         </div>
     </div>

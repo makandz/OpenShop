@@ -6,7 +6,8 @@
     }
 }
 .title-text{
-    font-size: 2em;
+    font-size: 3em;
+    margin-bottom: 20px;
 }
 .p-3:hover{
     transition-duration: 0.5s;
@@ -25,4 +26,11 @@
 }
 .add-cart-item{
     margin-left: -3%;
+}
+.product-image {
+    margin-bottom: 10px;
+    object-fit: cover;
+    height: 225px;
+    width: 225px;
+    margin-left: 11px;
 }
