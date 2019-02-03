@@ -1,0 +1,62 @@
+{% include "require/head.html" %}
+
+<!-- STICKY NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <h2 class="navbar-brand" href="#">InterShop</h2>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">CART</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Cart Menu -->
+<h2 id = "your-cart" class = "text-center pb-4">Your cart</h2>
+<div class="container pt-5">
+    <div class="container-fluid">
+    <table class="table table-borderless">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-6 cart-text">Product</th>
+                <th class="col-2 cart-text">Price</th>
+                <th class="col-2 cart-text">Quantity</th>
+                <th class="col-2 cart-text">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="d-flex">
+                <th class="col-2 cart-text"><img src="{{path}}/www/img/interac.png" class = "img-fluid neg-margin"</th>
+                <th class="col-4 pl-5">
+                    <h5 class = "cart-text">Interac Debit</h5>
+                    <br>
+                    <h5 class = "cart-text"><i>This is the item description</i></h5>
+                    <button type="button" class="btn btn-secondary mt-2">Remove</button>
+                </th>
+                <th class="col-2 cart-text">$15.00</th>
+                <th class="col-2 cart-text">Chosen Value</th>
+                <th class="col-2 cart-text">Total</th>
+            </tr>
+        </tbody>
+    </table>
+    <hr class="pt-3">
+        <div class="row">
+            <div class="col">
+                <h5 class="cart-text text-right"><b>Subtotal<b></h5>
+            </div>
+            <div class="col"><h5 class="cart-text text-right">$15.00</h5></div>
+        </div>
+    <br>
+    <h5 class = "cart-text text-right"><i>Shipping & taxes calculated at checkout</i></h5>
+    <div class = "float-right mt-3">
+        <button type="button" class="btn btn-secondary mr-4">CONTINUE SHOPPING</button>
+        <button type="button" class="btn btn-secondary mr-4">UPDATE</button>
+        <button type="button" class="btn btn-info">CHECK</button>
+    </div>
+</div>

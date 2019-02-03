@@ -34,3 +34,16 @@
     width: 225px;
     margin-left: 11px;
 }
+#your-cart{
+    color: #333333;
+    font-size: 2em;
+    padding-top: 6.5%;
+}
+.cart-text{
+    color: #333333;
+    font-size: 1em;
+    font-weight: 300;
+}
+.neg-margin{
+    margin-left: -8.5%;
+}
