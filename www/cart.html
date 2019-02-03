@@ -43,9 +43,46 @@
             <div class="col"><h5 class="cart-text text-right">${{ total }}</h5></div>
         </div>
     <br>
-    <h5 class="cart-text text-right"><i>Shipping & taxes calculated at checkout</i></h5>
-    <div class="float-right mt-3">
-        <a href="{{path}}/index.php" class="btn btn-secondary mr-4">CONTINUE SHOPPING</a>
-        <button type="button" class="btn btn-info" {{ not total ? 'disabled' : ''}}>CHECKOUT</button>
-    </div>
+    <form action="{{path}}/secure/checkout.php" method="post" id="checkout">
+        <h4 class="mt-3">Contact Information</h4>
+        <div class="row mt-4">
+            <div class="col">
+                <input type="email" name="email" placeholder="Email" maxlength="30" class="form-control" required>
+            </div>
+        </div>
+        <h4 class="mt-4">Billing Address</h4>
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 mt-4">
+                <input type="text" name="first" placeholder="First Name" maxlength="20" class="form-control" required>
+            </div>
+            <div class="col-lg-6 col-sm-12 mt-4">
+                <input type="text" name="last" placeholder="Last Name" maxlength="20" class="form-control" required>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <input type="tel" name="phone" maxlength="10" placeholder="Phone Number" class="form-control" id="phone" required>
+            </div>
+        </div>
+        <div class="float-right mt-4">
+            <a href="{{path}}/index.php" class="btn btn-secondary mr-4">CONTINUE SHOPPING</a>
+            <button type="submit" class="btn btn-info" {{ not total ? 'disabled' : ''}}>CHECKOUT</button>
+        </div>
+    </form>
 </div>
+
+<script>
+    function phonen() {
+        var phone = $('#phone').val(),
+        intRegex = /[0-9 -()+]+$/;
+        if ((phone.length < 6) || (!intRegex.test(phone))) {
+            alert('Please enter a valid phone number.');
+            return false;
+        } else return true;
+    }
+
+    $( "#checkout" ).submit(function( event ) {
+        if (!phonen($("#phone").val()))
+            event.preventDefault();
+    });
+</script>

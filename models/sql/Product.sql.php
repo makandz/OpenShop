@@ -18,4 +18,11 @@ function Products_getProductInfo(int $productId) {
     return $exec->Execute(false);
 }
 
+function Orders_addOrder(string $first, string $last, string $email, string $phone) {
+    $query = "INSERT INTO orders (id, first, last, email, phone) 
+    VALUES (NULL, ?, ?, ?, ?);";
+    $exec = new SQL($query, [$first, $last, $email, $phone]);
+    return $exec->Execute(false);
+}
+
 ?>

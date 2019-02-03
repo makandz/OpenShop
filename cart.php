@@ -41,6 +41,9 @@ foreach ($cart as $key => $a) {
 $pass['total'] = $total;
 $pass['cart'] = $cart_items;
 
+$_SESSION['cart_purchase'] = $cart_items;
+$_SESSION['total'] = $total;
+
 require_once "models/render.php";
 
 ?>

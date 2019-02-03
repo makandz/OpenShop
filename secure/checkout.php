@@ -13,55 +13,64 @@
     $pass['desc'] = "Checkout process for OpenShop.";
     $page = "secure/checkout";
 
-    require_once "models/main.php";
+    require_once "${path}/models/main.php";
 
     require "${path}/secure/app.php";
 
-    if (isset($_GET['id']) && $_GET['id'])
-        $_ID = cleanValue($_GET['id'], true, false, false);
-    else
-        $_ID = false;
+    $user['email'] = $_POST['email'] ?? false;
+    $user['first'] = $_POST['first'] ?? false;
+    $user['last'] = $_POST['last'] ?? false;
+    $user['phone'] = $_POST['phone'] ?? false;
 
-    if (!$_ID) {
-        echo "Invalid link, return to the previous page and try again.";
+    var_dump($user);
+
+    if (in_array(false, $user)) {
+        echo "something went wrong.";
+        die();
+    }
+
+    $_SESSION['user'] = $user;
+
+    if (!($_SESSION['cart_purchase'] ?? false)) {
+        echo "error submitting order..";
         die();
     }
 
     $payer = new Payer();
     $payer->setPaymentMethod('paypal');
 
-    $item = new Item();
-    $item->setName($v_itemInfo['name'])
-        ->setCurrency('USD')
-        ->setQuantity(1)
-        ->setPrice($v_itemInfo['cost']);
-
+    $total = 0;
     $itemList = new ItemList();
-    $itemList->setItems([$item]);
+    foreach ($_SESSION['cart_purchase'] as $a) {
+        $item = new Item();
+        $item->setName($a['name'])
+            ->setCurrency('CAD')
+            ->setQuantity($a['quantity'])
+            ->setPrice($a['price'] / 100);
+        $total += ($a['price'] / 100) * $a['quantity'];
+        $stuff[] = $item;
+    }
+
+    $itemList->setItems($stuff);
 
     $details = new Details();
     $details->setShipping(0)
-        ->setSubtotal($v_itemInfo['cost']);
+        ->setSubtotal($total);
     
     $amount = new Amount();
-    $amount->setCurrency('USD')
-        ->setTotal($v_itemInfo['cost'])
-        ->setDetails($details);
-
-    $amount = new Amount();
-    $amount->setCurrency('USD')
-        ->setTotal($v_itemInfo['cost'])
+    $amount->setCurrency('CAD')
+        ->setTotal($total)
         ->setDetails($details);
 
     $transaction = new Transaction();
     $transaction->setAmount($amount)
         ->setItemList($itemList)
-        ->setDescription($v_itemInfo['desc'])
+        ->setDescription("OpenShop order.")
         ->setInvoiceNumber(uniqid());
 
     $redirectUrls = new RedirectUrls();
-    $redirectUrls->setReturnUrl()
-        ->setCancelUrl();
+    $redirectUrls->setReturnUrl($url . "/secure/success.php")
+        ->setCancelUrl($url);
 
     $payment = new Payment();
     $payment->setIntent('sale')
@@ -72,6 +81,7 @@
     try {
         $payment->create($paypal);
     } catch (Exception $e) {
+        var_dump($e);
         echo "An error occured while creating the payment, contact support for help.";
         exit;
     }
