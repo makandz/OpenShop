@@ -19,6 +19,10 @@
 .black-font{
     color: #111111;
 }
+.black-font:hover {
+    text-decoration: none;
+    color: black;
+}
 .add-cart-item{
     margin-left: -3%;
 }
