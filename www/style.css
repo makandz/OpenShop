@@ -6,7 +6,7 @@
     }
 }
 .title-text{
-    font-size: 2em;
+    font-size: 3em;
 }
 .p-3:hover{
     transition-duration: 0.5s;
@@ -25,4 +25,17 @@
 }
 .add-cart-item{
     margin-left: -3%;
+}
+#your-cart{
+    color: #333333;
+    font-size: 2em;
+    padding-top: 6.5%;
+}
+.cart-text{
+    color: #333333;
+    font-size: 1em;
+    font-weight: 300;
+}
+.neg-margin{
+    margin-left: -8.5%;
 }
