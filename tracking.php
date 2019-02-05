@@ -11,11 +11,10 @@ $pass['tracking'] = false;
 $pass['failed'] = false;
 
 $pass['order'] = Order_getOrder($_GET['order'] ?? false);
-if (!$pass['order'] && ($_GET['order'] ?? false))
-    $pass['failed'] = true;
-else if ($_GET['order'] ?? false) {
+if (($_GET['order'] ?? false) && $pass['order'])
     $pass['tracking'] = true;
-}
+elseif (($_GET['order'] ?? false) && !$pass['order'])
+    $pass['failed'] = true;
 
 require_once "models/render.php";
 

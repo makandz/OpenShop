@@ -19,9 +19,10 @@ function Orders_getOrders() {
 function Order_getOrder(string $token) {
     $query = "SELECT id, first, last, ship
         FROM orders
-        WHERE token = ?";
+        WHERE token = ?
+        LIMIT 1";
     $exec = new SQL($query, [$token]);
-    return $exec->Execute(true);
+    return $exec->Execute(false);
 }
 
 function Products_getProductInfo(int $productId) {
